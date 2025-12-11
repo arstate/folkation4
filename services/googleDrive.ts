@@ -21,12 +21,12 @@ export const extractFolderId = (url: string): string | null => {
 export const fetchDriveFiles = async (folderId: string): Promise<DriveFile[]> => {
   if (!folderId) return [];
 
-  // Query: files inside the folder, not trashed, is an image
-  const q = `'${folderId}' in parents and trashed = false and mimeType contains 'image/'`;
+  // Query: files inside the folder, not trashed, is an image OR a folder
+  const q = `'${folderId}' in parents and trashed = false and (mimeType contains 'image/' or mimeType = 'application/vnd.google-apps.folder')`;
   const fields = 'files(id, name, mimeType, thumbnailLink, webContentLink)';
-  const orderBy = 'createdTime desc';
+  const orderBy = 'folder, createdTime desc'; // Folders first, then images
   
-  const url = `${BASE_URL}?q=${encodeURIComponent(q)}&key=${API_KEY}&fields=${encodeURIComponent(fields)}&orderBy=${encodeURIComponent(orderBy)}&pageSize=50`;
+  const url = `${BASE_URL}?q=${encodeURIComponent(q)}&key=${API_KEY}&fields=${encodeURIComponent(fields)}&orderBy=${encodeURIComponent(orderBy)}&pageSize=100`;
 
   try {
     const response = await fetch(url);

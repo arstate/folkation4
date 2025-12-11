@@ -1,11 +1,8 @@
 import React from 'react';
 import Button from './Button';
+import { Link } from 'react-router-dom';
 
-interface HeroProps {
-  onCtaClick: () => void;
-}
-
-const Hero: React.FC<HeroProps> = ({ onCtaClick }) => {
+const Hero: React.FC = () => {
   return (
     <section className="min-h-[85vh] flex flex-col justify-center items-center text-center p-6 relative overflow-hidden bg-white">
       {/* Decorative Background Elements */}
@@ -27,23 +24,25 @@ const Hero: React.FC<HeroProps> = ({ onCtaClick }) => {
             22-23 DESEMBER 2025
           </div>
           <div className="font-mono font-bold text-lg italic bg-white px-4 py-2 border-2 border-black">
-            LOKASI RAHASIA
+            Royal Plaza Surabaya
           </div>
         </div>
 
         <p className="font-mono text-lg mb-8 max-w-lg mx-auto leading-relaxed">
-          Dokumentasi visual kegilaan kita bersama. Jangan lupa pulang, tapi kalau lupa juga gapapa.
+          Dokumentasi visual kegilaan kita bersama. Pilih hari untuk melihat memori yang tersisa.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button onClick={onCtaClick} className="text-xl px-10 py-4">
-            LIHAT GALERI
-          </Button>
-          <a href="#video" className="block">
-             <Button variant="secondary" className="w-full text-xl px-10 py-4 bg-neo-lime hover:bg-lime-400">
-              NONTON VIDEO
+        <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <Link to="/day1">
+            <Button className="text-xl px-10 py-4 w-full bg-neo-yellow hover:bg-yellow-400">
+              GALERI DAY 1
             </Button>
-          </a>
+          </Link>
+          <Link to="/day2">
+             <Button className="text-xl px-10 py-4 w-full bg-neo-cyan hover:bg-cyan-400">
+              GALERI DAY 2
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
