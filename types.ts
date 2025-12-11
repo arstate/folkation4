@@ -1,6 +1,13 @@
+export interface VideoConfig {
+  id: string;
+  title: string;
+  url: string;
+}
+
 export interface EventConfig {
   day1FolderUrl: string;
   day2FolderUrl: string;
+  afterMovies?: VideoConfig[];
 }
 
 export interface DriveFile {
