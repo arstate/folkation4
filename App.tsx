@@ -51,7 +51,7 @@ const App: React.FC = () => {
 
         <footer className="bg-neo-white border-t-4 border-black py-8 text-center font-mono">
           <p className="font-bold">
-            &copy; 2025 FOLKATION CREATIVE. DIBUAT DENGAN CINTA DAN KOPI.
+            &copy; 2025 FOLKATION 4.0. DIBUAT DENGAN CINTA DAN KOPI.
           </p>
           <div className="mt-4">
             <button 
