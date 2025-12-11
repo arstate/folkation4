@@ -45,7 +45,8 @@ const Gallery: React.FC<GalleryProps> = ({ day }) => {
 
       setLoading(true);
       setError(null);
-      setPhotos([]);
+      setPhotos([]); // Clear photos immediately
+      window.scrollTo(0, 0); // Scroll to top for fresh view
 
       try {
         const files = await fetchDriveFiles(currentFolderId);

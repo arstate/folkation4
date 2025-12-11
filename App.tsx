@@ -16,7 +16,10 @@ const Home: React.FC = () => {
             const id = location.hash.replace('#', '');
             const element = document.getElementById(id);
             if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
+                // Add a small delay to ensure page is rendered
+                setTimeout(() => {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
             }
         }
     }, [location]);
@@ -44,8 +47,9 @@ const App: React.FC = () => {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/day1" element={<Gallery day="day1" />} />
-            <Route path="/day2" element={<Gallery day="day2" />} />
+            {/* Adding key forces remount when switching between days */}
+            <Route path="/day1" element={<Gallery key="day1" day="day1" />} />
+            <Route path="/day2" element={<Gallery key="day2" day="day2" />} />
           </Routes>
         </main>
 

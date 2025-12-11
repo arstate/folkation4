@@ -42,13 +42,13 @@ const Header: React.FC = () => {
             {item.label}
           </Link>
         ))}
-        {/* Video Link (Scrolls if on home, otherwise goes home) */}
-        <a 
-            href="/#video"
+        {/* Video Link (Uses Link for HashRouter compatibility) */}
+        <Link 
+            to="/#video"
             className="font-mono font-bold px-4 py-1 border-2 border-black transition-all bg-white hover:bg-gray-100"
         >
             VIDEO
-        </a>
+        </Link>
       </div>
 
       {/* Mobile Hamburger */}
@@ -79,13 +79,13 @@ const Header: React.FC = () => {
               {item.label}
             </Link>
           ))}
-           <a
-              href="/#video"
+           <Link
+              to="/#video"
               onClick={() => setIsMenuOpen(false)}
               className="w-full text-left font-mono font-bold text-xl px-4 py-3 border-2 border-black bg-white"
             >
               VIDEO
-            </a>
+            </Link>
         </div>
       )}
     </nav>
